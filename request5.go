@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func CheckDay(i int) {
@@ -28,20 +29,6 @@ func CheckDay(i int) {
 func Run5() {
 	//5. Tính ra số ngày trong tuần(dạng string và number) của mốc thời gian sau `1592190385`
 	fmt.Println("\n	5.")
-	i := 1592190385 + 25200 // 25200 để chuyển múi giờ VN
-	fmt.Println(i)
-
-	index := 4
-	for {
-		i = i - 86400
-		index += 1
-		if index > 7 {
-			index = 1
-		}
-		if i < 86400 {
-			break
-		}
-	}
-	fmt.Print("Ngày thứ ", index, " trong tuần là: ")
-	CheckDay(index)
+	fmt.Println("Số ngày: ", 1592190385/3600/24)
+	fmt.Println("Ngày này là: ", time.Unix(1592190385, 0).Weekday())
 }

@@ -18,31 +18,19 @@ func Run7() {
 	// ```
 	// gợi ý sử dụng một method của time để tính tạo ra 1 tính năng như setTimeout trong js
 	fmt.Println("\n	7.")
-	ns := time.Now().UnixNano()
-	ctx := context.Background()
-	err := TimeOut2(ctx, ns)
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println("Success")
-	}
-}
 
-func TimeOut2(ctx context.Context, ns int64) error {
-	// tạo context để tạo time out và cancel để hủy khi time out
-	ctx, cancel := context.WithTimeout(ctx, 7*time.Second)
-	// gọi cancel khi kết thúc hàm
-	defer cancel()
-	for {
-		select {
-		case <-ctx.Done(): // kiểm tra xem time out chưa
-			fmt.Println("TIME OUT")
-			cancel()         // gọi cancel để hủy hàm
-			return ctx.Err() // trả ra lỗi khi chạy hàm
-		default:
+	f := func(ctx context.Context, k int64) {
+		if v := ctx.Value(k); v != nil {
+			log.Println("found value:", v)
 			time.Sleep(3 * time.Second)
-			t := time.Now().UnixNano()
-			log.Println("Hiệu: ", t-ns)
+			log.Println("hiệu:", time.Now().UnixNano()-k)
+			return
 		}
+		fmt.Println("key not found:", k)
 	}
+
+	k := time.Now().UnixNano()
+	ctx := context.WithValue(context.Background(), k, "k")
+
+	f(ctx, k)
 }
