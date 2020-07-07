@@ -6,6 +6,8 @@ import (
 )
 
 func Run2() {
+	// 2. Viết 1 đoạn chương trình tính ra ngày hiện tại theo timestamp.
+	// Điểm mốc từ mức 0  tại 1/1/1970
 	fmt.Println("\n	2.")
 	now := time.Now()
 	i := now.Unix()

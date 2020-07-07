@@ -7,6 +7,7 @@ import (
 )
 
 func Run8() {
+	// 8. Tạo 1 interval time sao cho cứ 100ms in ra dùng chữ `${time.Now().Unix()} done`
 	fmt.Println("\n	8.")
 	ctx := context.Background()
 	err := TimeOut3(ctx)
@@ -16,6 +17,7 @@ func Run8() {
 		fmt.Println("Success")
 	}
 }
+
 func TimeOut3(ctx context.Context) error {
 	ctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()

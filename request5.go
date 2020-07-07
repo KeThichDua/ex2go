@@ -26,6 +26,7 @@ func CheckDay(i int) {
 }
 
 func Run5() {
+	//5. Tính ra số ngày trong tuần(dạng string và number) của mốc thời gian sau `1592190385`
 	fmt.Println("\n	5.")
 	i := 1592190385 + 25200 // 25200 để chuyển múi giờ VN
 	fmt.Println(i)
@@ -41,6 +42,6 @@ func Run5() {
 			break
 		}
 	}
-	fmt.Print("Ngay thu ", index, " trong tuần là: ")
+	fmt.Print("Ngày thứ ", index, " trong tuần là: ")
 	CheckDay(index)
 }

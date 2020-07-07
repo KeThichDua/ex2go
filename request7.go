@@ -8,6 +8,15 @@ import (
 )
 
 func Run7() {
+	// 	7. Tạo 1 đối tượng context với 1 value là timestamp hiện tại tính theo `ns`
+	// chạy qua 1 hàm như sau. Sau 3s in ra hiệu của thời gian của thời gian hiện
+	// tại với biến dữ liệu trong context. in ra màn hình kết quả.
+	// ```go
+	// func x(ctx context.Context) {
+
+	// }
+	// ```
+	// gợi ý sử dụng một method của time để tính tạo ra 1 tính năng như setTimeout trong js
 	fmt.Println("\n	7.")
 	ns := time.Now().UnixNano()
 	ctx := context.Background()
